@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "824vnci1a0qgyqFUBgpoGPrU751B1rd+tjXyAQ9/Bnk=",
+  "Source": "bankingCoreApplication",
+  "BasePath": "_content/bankingCoreApplication",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

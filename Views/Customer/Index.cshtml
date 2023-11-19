@@ -1,0 +1,60 @@
+﻿@page
+@model IEnumerable<bankingMvcTestApp.Models.CustomerClass>
+@using Microsoft.AspNetCore.Http
+
+
+@{
+    ViewBag.Title = "Welcome to your Account";
+}
+@if (@HttpContext.Session.GetString("accountnumber") != null)
+{  
+    //#Migration Changes - SaurabhG
+    @* <h2>Welcome Account Number  @Session["accountnumber"].ToString()</h2> *@
+
+    <h2>Welcome Account Number  @HttpContext.Session.GetInt32("accountnumber").ToString()</h2>
+}
+
+<p>
+    @Html.ActionLink("Create New Account", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customer_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customer_accounttype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customer_accountbalance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_accounttype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_accountbalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.customerid }) |
+                @Html.ActionLink("Details", "Details", new { id = item.customerid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.customerid })
+            </td>
+        </tr>
+    }
+
+</table>
